@@ -19,6 +19,19 @@ class Beer extends React.Component{
     this.setState({showModal: false});
   }
 
+  mapIngredients(ingredients){
+    return Object.keys(ingredients).map((ingredient, index) => {
+      return <p key={index}>{ingredient}: {ingredients[ingredient]}g</p>
+    })
+  }
+
+  mapHops(hops) {
+    let sortedHops = Object.keys(hops).sort((a, b) => hops[b] - hops[a])
+    return sortedHops.map((hop, index) => {
+      return <p key={index}>{hop}: {hops[hop] >= 0 ? `${hops[hop]} mins` : `after ${hops[hop] * -1} days`}</p>
+    })
+  }
+
   render(){
     const beer = this.props.beer;
 
@@ -30,7 +43,14 @@ class Beer extends React.Component{
           <p>{beer.description}</p>
           <Modal show={this.state.showModal} handleClose={(this.hideModal.bind(this))}>
             <p>{beer.name}</p>
-            <p>More information about the beer will go in here</p>
+            <div style={{display: "inline-flex"}}>
+              <div className="ingredient-div">
+                {this.mapIngredients(beer.ingredients)}
+              </div>
+              <div className="ingredient-div">
+                {this.mapHops(beer.hopSchedule)}
+              </div>
+            </div>
           </Modal>
         </div>
       </div>
