@@ -18,6 +18,7 @@ public class BeerController {
     private BeerRepository beerRepository;
 
     @GetMapping("/beers")
+    @CrossOrigin(origins = "http://localhost:3000")
     public Page<Beer> getBeers(Pageable pageable){
         return beerRepository.findAll(pageable);
     }
