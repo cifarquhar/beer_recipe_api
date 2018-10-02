@@ -6,6 +6,7 @@ import com.codeclan.example.beer_recipe_api.repository.BeerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -47,6 +48,15 @@ public class BeerController {
                     beer.setFavourite(beerRequest.isFavourite());
                     return beerRepository.save(beer);
                 }).orElseThrow(() -> new BeerNotFoundException("Can't update a beer that doesn't exist!"));
+    }
+
+    @DeleteMapping("/beers/{beerId}")
+    public ResponseEntity<?> deleteBeer(@PathVariable Long beerId){
+        return beerRepository.findById(beerId)
+                .map(beer -> {
+                    beerRepository.delete(beer);
+                    return ResponseEntity.ok().build();
+                }).orElseThrow(() -> new BeerNotFoundException("Can't delete a beer that doesn't exist!"));
     }
 
 }
