@@ -8,10 +8,10 @@ const Modal = ({show, handleClose, children}) => {
     <div className={visibilityClass}>
       <section className="modal-main">
         <section className="modal-header">
-          {children[0]}
+          {children.slice(0,1)}
         </section>
         <section className="modal-content">
-          {children[1]}
+          {children.slice(1)}
         </section>
         <section className="modal-footer">
           <button onClick={handleClose}>Close</button>
