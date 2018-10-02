@@ -7,8 +7,15 @@ const Modal = ({show, handleClose, children}) => {
   return(
     <div className={visibilityClass}>
       <section className="modal-main">
-        {children}
-        <button onClick={handleClose}>Close</button>
+        <section className="modal-header">
+          {children[0]}
+        </section>
+        <section className="modal-content">
+          {children[1]}
+        </section>
+        <section className="modal-footer">
+          <button onClick={handleClose}>Close</button>
+        </section>
       </section>
     </div>
   )

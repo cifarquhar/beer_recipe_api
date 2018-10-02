@@ -50,6 +50,20 @@
   transform: translate(-50%,-50%);
 }
 
+.modal-header{
+  height: 10%;
+  border-bottom: 1px solid black;
+}
+
+.modal-content{
+  height: 70%;
+}
+
+.modal-footer{
+  height: 10%;
+  border-top: 1px solid black;
+}
+
 .display-block {
   display: block;
 }
