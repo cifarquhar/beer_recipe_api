@@ -59,6 +59,9 @@ public class Beer implements Serializable {
     @Column
     private boolean favourite;
 
+    @Column
+    private int ibu;
+
 
     public Long getId() {
         return id;
@@ -178,5 +181,13 @@ public class Beer implements Serializable {
 
     public void setFavourite(boolean favourite) {
         this.favourite = favourite;
+    }
+
+    public int getIbu() {
+        return ibu;
+    }
+
+    public void setIbu(int ibu) {
+        this.ibu = ibu;
     }
 }

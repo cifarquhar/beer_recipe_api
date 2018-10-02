@@ -46,6 +46,7 @@ public class BeerController {
                     beer.setIngredients(beerRequest.getIngredients());
                     beer.setHopSchedule(beerRequest.getHopSchedule());
                     beer.setFavourite(beerRequest.isFavourite());
+                    beer.setIbu(beerRequest.getIbu());
                     return beerRepository.save(beer);
                 }).orElseThrow(() -> new BeerNotFoundException("Can't update a beer that doesn't exist!"));
     }
