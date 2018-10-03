@@ -4,7 +4,9 @@ class Add extends React.Component{
 
   render(){
     return(
-      <p>Form to add new recipe will go here</p>
+      <div className="new-recipe-div">
+        <p>Form to add a new recipe - work in progress</p>
+      </div>
     )
   }
 
