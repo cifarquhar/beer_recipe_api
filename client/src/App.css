@@ -5,6 +5,15 @@
   text-align: center;
 }
 
+.summary-header{
+  display: flex;
+  justify-content: space-around;
+}
+
+.summary-details{
+  width: 40%;
+}
+
 .navbar{
   list-style-type: none;
   display: flex;
@@ -28,6 +37,7 @@
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
+  border-radius: 25px;
 }
 
 .modal-header{
