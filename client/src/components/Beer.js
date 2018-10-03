@@ -37,7 +37,7 @@ class Beer extends React.Component{
 
     return(
       <div>
-        <div style={{border: "1px solid black", margin: "1px"}} onClick={this.showModal.bind(this)}>
+        <div className="beer-summary" onClick={this.showModal.bind(this)}>
           <p>{beer.name}</p>
           <p>{beer.style}</p>
           <p>{beer.description}</p>
