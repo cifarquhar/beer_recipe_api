@@ -1,5 +1,6 @@
 .beer-summary{
   border: 1px solid black;
+  border-radius: 25px;
   margin: 3px 20% 3px 20%;
   text-align: center;
 }
