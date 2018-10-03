@@ -10,7 +10,7 @@ const Navbar = () => (
       <Link to="/favourites">Favourites</Link>
     </li>
     <li>
-      <Link to="/new">Add New Recipe</Link>
+      <Link to="/add">Add New Recipe</Link>
     </li>
   </ul>
 );
