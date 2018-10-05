@@ -24,6 +24,7 @@ public class BeerController {
     }
 
     @PostMapping("/beers")
+    @CrossOrigin(origins = "http://localhost:3000")
     public Beer createBeer(@Valid @RequestBody Beer beer){
         return beerRepository.save(beer);
     }

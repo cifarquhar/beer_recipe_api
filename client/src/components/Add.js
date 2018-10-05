@@ -45,6 +45,11 @@ class Add extends React.Component{
   handleSubmit(event){
     event.preventDefault();
     console.log(this.state);
+
+    const dataToSend = JSON.stringify(this.state)
+
+    console.log(dataToSend)
+
     this.setState({
       name: "",
       style: "",
@@ -66,6 +71,16 @@ class Add extends React.Component{
       nextHopTime: 0
     });
     event.target.reset()
+
+    fetch("http://localhost:8080/beers", {
+      method: "POST",
+      mode: "CORS",
+      body: dataToSend,
+      headers: { "Content-Type": "application/json"}
+    })
+    .then(res => {return res})
+    .catch(err => err)
+
   }
 
   handleIngredientSubmit(event){
