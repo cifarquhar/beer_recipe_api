@@ -54,6 +54,7 @@ public class BeerController {
     }
 
     @DeleteMapping("/beers/{beerId}")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<?> deleteBeer(@PathVariable Long beerId){
         return beerRepository.findById(beerId)
                 .map(beer -> {

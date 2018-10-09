@@ -1,8 +1,10 @@
 import React from "react";
 
-const Modal = ({show, handleClose, children}) => {
+const Modal = ({show, handleClose, handleDelete, beerID, children}) => {
 
   const visibilityClass = show ? "modal display-block" : "modal display-none";
+
+  console.log(beerID)
 
   return(
     <div className={visibilityClass}>
@@ -15,6 +17,7 @@ const Modal = ({show, handleClose, children}) => {
         </section>
         <section className="modal-footer">
           <button onClick={handleClose}>Close</button>
+          <button onClick={handleDelete}>Delete</button>
         </section>
       </section>
     </div>
