@@ -40,15 +40,29 @@ class Add extends React.Component{
     this.handleNewIngredientQuantity = this.handleNewIngredientQuantity.bind(this)
     this.handleNewHopName = this.handleNewHopName.bind(this)
     this.handleNewHopTime = this.handleNewHopTime.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(event){
     event.preventDefault();
-    console.log(this.state);
+    const s = this.state;
 
-    const dataToSend = JSON.stringify(this.state)
-
-    console.log(dataToSend)
+    const dataToSend = {
+      name: s.name,
+      style: s.style,
+      description: s.description,
+      OG: s.OG,
+      FG: s.FG,
+      mashTemp: s.mashTemp,
+      mashTime: s.mashTime,
+      boilTime: s.boilTime,
+      fermantationTime: s.fermantationTime,
+      conditioningTime: s.conditioningTime,
+      yeast: s.yeast,
+      ingredients: s.ingredients,
+      hopSchedule: s.hopSchedule,
+      ibu: s.ibu,
+    }
 
     this.setState({
       name: "",
@@ -74,12 +88,14 @@ class Add extends React.Component{
 
     fetch("http://localhost:8080/beers", {
       method: "POST",
-      mode: "CORS",
-      body: dataToSend,
-      headers: { "Content-Type": "application/json"}
+      body: JSON.stringify(dataToSend),
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      }
     })
     .then(res => {return res})
-    .catch(err => err)
+    .catch(err => console.log(err))
 
   }
 
@@ -177,7 +193,7 @@ class Add extends React.Component{
         <p>Form to add a new recipe - work in progress</p>
 
         {/* Main Form */}
-        <form action="" onSubmit={this.handleSubmit.bind(this)}>
+        <form action="" onSubmit={this.handleSubmit}>
           <div className="form-content">
             <label htmlFor="name">Name: </label>
             <input type="text" placeholder="name" value={s.name} onChange={this.handleNameChange} id="name" name="name"/>
