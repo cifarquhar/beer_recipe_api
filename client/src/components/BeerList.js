@@ -12,10 +12,13 @@ class BeerList extends React.Component{
   }
 
   componentDidMount() {
+    this.callAPI();
+  }
+
+  callAPI(){
     fetch("http://localhost:8080/beers")
       .then(response => response.json())
-      // .then(response => console.log(response))
-      .then(data => this.setState({isLoaded: true, beers: this.mapBeerData(data.content)}));
+      .then(data => this.setState({ isLoaded: true, beers: this.mapBeerData(data.content) }));
   }
 
   mapBeerData(beers){
