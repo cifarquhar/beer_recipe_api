@@ -20,11 +20,9 @@ class Beer extends React.Component{
   }
 
   deleteBeer(event){
-    fetch(`http://localhost:8080/beers/${this.props.beer.id}`, {
-      method: "DELETE"
-    })
-    .then(this.hideModal(event))
-    .catch(err => console.log(err))
+    const p = this.props
+    p.handleDelete(p.beer)
+    this.hideModal(event)
   }
 
   mapIngredients(ingredients){

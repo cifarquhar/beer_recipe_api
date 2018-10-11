@@ -23,8 +23,16 @@ class BeerList extends React.Component{
 
   mapBeerData(beers){
     return beers.map(((beer, index) => {
-      return <Beer key={index} beer={beer}/>;
+      return <Beer key={index} beer={beer} handleDelete={this.deleteBeer.bind(this)}/>;
     }));
+  }
+
+  deleteBeer(beer){
+    fetch(`http://localhost:8080/beers/${beer.id}`, {
+      method: "DELETE"
+    })
+    .then(this.callAPI())
+    .catch(err => console.log(err));
   }
 
   render(){
