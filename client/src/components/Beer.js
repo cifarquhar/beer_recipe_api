@@ -1,5 +1,6 @@
 import React from "react";
 import Modal from "./Modal";
+import Star from "./Star";
 
 class Beer extends React.Component{
 
@@ -45,9 +46,10 @@ class Beer extends React.Component{
       <div>
         <div className="beer-summary" onClick={this.showModal.bind(this)}>
           <div className="summary-header">
-            <p className="summary-details">{beer.name}</p>
-            <p className="summary-details">{beer.style}</p>
-            <p className="favourite-logo">{beer.favourite ? `\u2B50` : '\u2606' }</p>
+            <div className="summary-details">{beer.name}</div>
+            <div className="summary-details">{beer.style}</div>
+            {/* <div className="favourite-logo">{beer.favourite ? `\u2B50` : '\u2606' }</div> */}
+            <div className="favourite-logo"><Star beer={beer}/></div>
           </div>
           <p>{beer.description}</p>
           <Modal show={this.state.showModal} handleClose={(this.hideModal.bind(this))} handleDelete={this.deleteBeer.bind(this)} beerID={beer.id}>
