@@ -20,10 +20,10 @@ class Star extends React.Component {
     })
       .then(res => { return res })
       .catch(err => console.log(err));
+      this.forceUpdate();
   }
 
   render(){
-    console.log(this.props.beer);
     return (
     <div onClick={this.handleClick.bind(this)}>
         {this.props.beer.favourite ? `\u2B50` : '\u2606'}
