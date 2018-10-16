@@ -47,7 +47,7 @@ class Beer extends React.Component{
           <div className="summary-header">
             <p className="summary-details">{beer.name}</p>
             <p className="summary-details">{beer.style}</p>
-            <p className="favourite-logo">{beer.favourite ? `\u2B50` : '\u2B50' }</p>
+            <p className="favourite-logo">{beer.favourite ? `\u2B50` : '\u2606' }</p>
           </div>
           <p>{beer.description}</p>
           <Modal show={this.state.showModal} handleClose={(this.hideModal.bind(this))} handleDelete={this.deleteBeer.bind(this)} beerID={beer.id}>
