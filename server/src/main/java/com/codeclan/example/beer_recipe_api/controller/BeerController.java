@@ -30,6 +30,7 @@ public class BeerController {
     }
 
     @PutMapping("/beers/{beerId}")
+    @CrossOrigin(origins = "http://localhost:3000")
     public Beer updateBeer(@PathVariable Long beerId,
                            @Valid @RequestBody Beer beerRequest){
         return beerRepository.findById(beerId)
